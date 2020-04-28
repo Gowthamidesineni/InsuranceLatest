@@ -1,0 +1,30 @@
+<mat-card style="text-align: center;">
+      <mat-card-title>
+        login
+      </mat-card-title>
+      <mat-card-content>
+  <form #loginForm="ngForm" (submit)="loginsubmit($event)" class="loginform"> 
+    <mat-form-field>
+      <input type="text" matInput placeholder="username" 
+      [(ngModel)]="user.userName" name="username" #uname="ngModel">
+      <div [hidden]="uname.valid || uname.pristine">
+        Must Enter User Name
+   </div> 
+    </mat-form-field><br>
+  
+    <mat-form-field>
+      <input  matInput type="password" placeholder="password" 
+      [(ngModel)]="user.password" name="password" #password="ngModel">
+      <div [hidden]="password.valid || password.pristine">
+        Must Enter Password
+      </div>
+    </mat-form-field><br>
+    
+    <button mat-fab type="submit" color="primary" [disabled]="!loginForm.form.valid">
+      <mat-icon>lock_open</mat-icon>
+    </button>
+  </form>
+</mat-card-content>
+</mat-card>
+
+  
